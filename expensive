@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            background-image: url("https://media.istockphoto.com/id/1424757003/photo/budget-and-financial-planning-concept-including-a-management-or-executive-cfo-estimating-the.jpg?s=612x612&w=0&k=20&c=-qReHcxce_QnKsWlvV1x7jOndAAjPpiuFR7fZ7AUfQ0=");
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+        }
+        #container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"], select {
+            width: calc(50% - 5px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="text"]::placeholder {
+            color: #aaa;
+        }
+        button {
+            background-color: rgb(29, 163, 20);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(20, 136, 17);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .delete-btn {
+            background-color: #ff5252;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #d50000;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Expense Tracker</h1>
+        <form id="expenseForm">
+            <select id="category-select">
+                <option value="food & beverage">Food & Beverage</option>
+                <option value="Rent">Rent</option>
+                <option value="Transport">Transport</option>
+                <option value="Relaxing">Relaxing</option>
+            </select>
+            <br>
+            <input type="text" name="expense-name" placeholder="Expense Name" id="expensename">
+            <input id="amount-input" type="text" name="amount" placeholder="Amount"><br><br>
+            <button type="button" id="add-btn">Add Expense</button>
+        </form>
+        
+        <div class="expenses-list">
+            <h2>Expenses List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Expense Name</th>
+                        <th>Amount</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-table-body"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" style="text-align: right;">Total</td>
+                        <td id="total-amount"></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <script>
+      
+        let expenses = [];
+        let totalamount = 0;
+        const categorySelect = document.getElementById('category-select');
+        const expensesname = document.getElementById('expensename');
+        const amountinput = document.getElementById('amount-input');
+        const addbtn = document.getElementById('add-btn');
+        const expensestablebody = document.getElementById('expense-table-body');
+        const totalamounts = document.getElementById('total-amount');
+        
+        addbtn.addEventListener('click', function() {
+            const category = categorySelect.value;
+            const expense = expensesname.value;
+            const amount = Number(amountinput.value);
+            
+            if (category === '') {
+                alert('Please select a category');
+                return;
+            }
+            if (isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+            expenses.push({ category, expense, amount });
+            totalamount += amount;
+            totalamounts.textContent = totalamount;
+            
+            const newrow = expensestablebody.insertRow();
+            const categorycell = newrow.insertCell();
+            const expensecell = newrow.insertCell();
+            const amountcell = newrow.insertCell();
+            const deletecell = newrow.insertCell();
+            
+            categorycell.textContent = category;
+            expensecell.textContent = expense;
+            amountcell.textContent = amount;
+            
+            const deletebtn = document.createElement('button');
+            deletebtn.textContent = 'Delete';
+            deletebtn.classList.add('delete-btn');
+            deletebtn.addEventListener('click', function() {
+                expenses.splice(expenses.findIndex(e => e.expense === expense), 1);
+                totalamount -= amount;
+                totalamounts.textContent = totalamount;
+                expensestablebody.removeChild(newrow);
+            });
+            
+            deletecell.appendChild(deletebtn);
+        });
+    </script>
+</body>
+</html>
+ 
+    </script>
+</body>
+</html>
+
+
