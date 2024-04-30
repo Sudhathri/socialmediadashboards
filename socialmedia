@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Dashboard</title>
+<!-- Add Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  body {
+    background-color:rgb(188, 211, 186);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  span {
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Social Media Dashboard</h1>
+</header>
+<div class="container">
+  <div class="card" style="background-color: #bfa8b5;">
+    <i class="fab fa-facebook-square icon" style="color: #eaeffa;"></i>
+    <h2>Facebook</h2>
+    <p>Followers: <span id="facebookFollowers">0</span></p>
+    <p>Likes: <span id="facebookLikes">0</span></p>
+    <p>Posts: <span id="facebookPosts">0</span></p>
+  </div>
+  <div class="card" style="background-color: #79b0b4;">
+    <i class="fab fa-twitter-square icon" style="color: #a78da4;"></i>
+    <h2>Twitter</h2>
+    <p>Followers: <span id="twitterFollowers">0</span></p>
+    <p>Likes: <span id="twitterLikes">0</span></p>
+    <p>Tweets: <span id="twitterTweets">0</span></p>
+  </div>
+  <div class="card" style="background-color: #e8dfe1;">
+    <i class="fab fa-instagram-square icon" style="color: #b1879f;"></i>
+    <h2>Instagram</h2>
+    <p>Followers: <span id="instagramFollowers">0</span></p>
+    <p>Likes: <span id="instagramLikes">0</span></p>
+    <p>Posts: <span id="instagramPosts">0</span></p>
+  </div>
+  <div class="card" style="background-color: #dbbce6;">
+    <i class="fab fa-youtube-square icon" style="color: #b0b99e;"></i>
+    <h2>YouTube</h2>
+    <p>Subscribers: <span id="youtubeSubscribers">0</span></p>
+    <p>Likes: <span id="youtubeLikes">0</span></p>
+    <p>Videos: <span id="youtubeVideos">0</span></p>
+  </div>
+  <div class="card" style="background-color: #0088cc;">
+    <i class="fab fa-telegram icon" style="color: #1a9ddd;"></i>
+    <h2>Telegram</h2>
+    <p>Subscribers: <span id="telegramSubscribers">0</span></p>
+    <p>Likes: <span id="telegramLikes">0</span></p>
+    <p>Posts: <span id="telegramPosts">0</span></p>
+  </div>
+</div>
+
+<script>
+  // Simulated data for demonstration purposes
+  const data = {
+    facebook: {
+      followers: 1000,
+      likes: 500,
+      posts: 20
+    },
+    twitter: {
+      followers: 1500,
+      likes: 700,
+      tweets: 30
+    },
+    instagram: {
+      followers: 2000,
+      likes: 1000,
+      posts: 40
+    },
+    youtube: {
+      subscribers: 3000,
+      likes: 1500,
+      videos: 50
+    },
+    telegram: {
+      subscribers: 2500,
+      likes: 1200,
+      posts: 25
+    }
+  };
+
+  // Update DOM with simulated data
+  document.getElementById('facebookFollowers').textContent = data.facebook.followers;
+  document.getElementById('facebookLikes').textContent = data.facebook.likes;
+  document.getElementById('facebookPosts').textContent = data.facebook.posts;
+
+  document.getElementById('twitterFollowers').textContent = data.twitter.followers;
+  document.getElementById('twitterLikes').textContent = data.twitter.likes;
+  document.getElementById('twitterTweets').textContent = data.twitter.tweets;
+
+  document.getElementById('instagramFollowers').textContent = data.instagram.followers;
+  document.getElementById('instagramLikes').textContent = data.instagram.likes;
+  document.getElementById('instagramPosts').textContent = data.instagram.posts;
+
+  document.getElementById('youtubeSubscribers').textContent = data.youtube.subscribers;
+  document.getElementById('youtubeLikes').textContent = data.youtube.likes;
+  document.getElementById('youtubeVideos').textContent = data.youtube.videos;
+
+  document.getElementById('telegramSubscribers').textContent = data.telegram.subscribers;
+  document.getElementById('telegramLikes').textContent = data.telegram.likes;
+  document.getElementById('telegramPosts').textContent = data.telegram.posts;
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Dashboard</title>
+<!-- Add Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  body {
+    background-color:rgb(188, 211, 186);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  span {
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Social Media Dashboard</h1>
+</header>
+<div class="container">
+  <div class="card" style="background-color: #bfa8b5;">
+    <i class="fab fa-facebook-square icon" style="color: #eaeffa;"></i>
+    <h2>Facebook</h2>
+    <p>Followers: <span id="facebookFollowers">0</span></p>
+    <p>Likes: <span id="facebookLikes">0</span></p>
+    <p>Posts: <span id="facebookPosts">0</span></p>
+  </div>
+  <div class="card" style="background-color: #79b0b4;">
+    <i class="fab fa-twitter-square icon" style="color: #a78da4;"></i>
+    <h2>Twitter</h2>
+    <p>Followers: <span id="twitterFollowers">0</span></p>
+    <p>Likes: <span id="twitterLikes">0</span></p>
+    <p>Tweets: <span id="twitterTweets">0</span></p>
+  </div>
+  <div class="card" style="background-color: #e8dfe1;">
+    <i class="fab fa-instagram-square icon" style="color: #b1879f;"></i>
+    <h2>Instagram</h2>
+    <p>Followers: <span id="instagramFollowers">0</span></p>
+    <p>Likes: <span id="instagramLikes">0</span></p>
+    <p>Posts: <span id="instagramPosts">0</span></p>
+  </div>
+  <div class="card" style="background-color: #dbbce6;">
+    <i class="fab fa-youtube-square icon" style="color: #b0b99e;"></i>
+    <h2>YouTube</h2>
+    <p>Subscribers: <span id="youtubeSubscribers">0</span></p>
+    <p>Likes: <span id="youtubeLikes">0</span></p>
+    <p>Videos: <span id="youtubeVideos">0</span></p>
+  </div>
+  <div class="card" style="background-color: #0088cc;">
+    <i class="fab fa-telegram icon" style="color: #1a9ddd;"></i>
+    <h2>Telegram</h2>
+    <p>Subscribers: <span id="telegramSubscribers">0</span></p>
+    <p>Likes: <span id="telegramLikes">0</span></p>
+    <p>Posts: <span id="telegramPosts">0</span></p>
+  </div>
+</div>
+
+<script>
+  // Simulated data for demonstration purposes
+  const data = {
+    facebook: {
+      followers: 1000,
+      likes: 500,
+      posts: 20
+    },
+    twitter: {
+      followers: 1500,
+      likes: 700,
+      tweets: 30
+    },
+    instagram: {
+      followers: 2000,
+      likes: 1000,
+      posts: 40
+    },
+    youtube: {
+      subscribers: 3000,
+      likes: 1500,
+      videos: 50
+    },
+    telegram: {
+      subscribers: 2500,
+      likes: 1200,
+      posts: 25
+    }
+  };
+
+  // Update DOM with simulated data
+  document.getElementById('facebookFollowers').textContent = data.facebook.followers;
+  document.getElementById('facebookLikes').textContent = data.facebook.likes;
+  document.getElementById('facebookPosts').textContent = data.facebook.posts;
+
+  document.getElementById('twitterFollowers').textContent = data.twitter.followers;
+  document.getElementById('twitterLikes').textContent = data.twitter.likes;
+  document.getElementById('twitterTweets').textContent = data.twitter.tweets;
+
+  document.getElementById('instagramFollowers').textContent = data.instagram.followers;
+  document.getElementById('instagramLikes').textContent = data.instagram.likes;
+  document.getElementById('instagramPosts').textContent = data.instagram.posts;
+
+  document.getElementById('youtubeSubscribers').textContent = data.youtube.subscribers;
+  document.getElementById('youtubeLikes').textContent = data.youtube.likes;
+  document.getElementById('youtubeVideos').textContent = data.youtube.videos;
+
+  document.getElementById('telegramSubscribers').textContent = data.telegram.subscribers;
+  document.getElementById('telegramLikes').textContent = data.telegram.likes;
+  document.getElementById('telegramPosts').textContent = data.telegram.posts;
+</script>
+</body>
+</html>
